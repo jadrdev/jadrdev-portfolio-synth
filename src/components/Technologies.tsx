@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 
 const Technologies = () => {
   const techs = [
+    { name: "React", color: "text-cyan-400" },
+    { name: "React Native", color: "text-cyan-500" },
     { name: "Angular", color: "text-red-500" },
     { name: "Ionic", color: "text-blue-500" },
     { name: "Flutter", color: "text-cyan-400" },
