@@ -40,10 +40,10 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:contact@jadrdev.com", label: "Email" },
+    { icon: Twitter, href: "https://twitter.com/jadrdevcm", label: "Twitter" },
+    { icon: Github, href: "https://github.com/jadrdev", label: "GitHub" },
+    { icon: Linkedin, href: "https://linkedin.com/in/jadrdev", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:info@jadrdev.com", label: "Email" },
   ];
 
   return (
