@@ -5,6 +5,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -13,8 +14,9 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -27,16 +29,46 @@ const Contact = () => {
       return;
     }
 
-    // Here you would typically send the form data to a backend
-    console.log("Form submitted:", formData);
-    
-    toast({
-      title: "¡Mensaje enviado!",
-      description: "Te responderé lo antes posible.",
-    });
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      // Configura tus credenciales de EmailJS aquí
+      // Obtén estos valores en: https://dashboard.emailjs.com/
+      const serviceId = "service_81c64r8";
+      const templateId = "template_e44jqfr";
+      const publicKey = "YnY8LBtLLyDw3tVSx";
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: "Jadrdev", // Tu nombre
+      };
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      toast({
+        title: "¡Mensaje enviado!",
+        description: "Te responderé lo antes posible.",
+      });
+
+      // Reset form
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error al enviar el mensaje:", error);
+      toast({
+        title: "Error",
+        description: "No se pudo enviar el mensaje. Por favor intenta de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialLinks = [
@@ -120,10 +152,11 @@ const Contact = () => {
             <Button
               type="submit"
               size="lg"
+              disabled={isSubmitting}
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground glow-primary font-semibold"
             >
               <Send className="w-4 h-4 mr-2" />
-              Enviar mensaje
+              {isSubmitting ? "Enviando..." : "Enviar mensaje"}
             </Button>
           </motion.form>
 
