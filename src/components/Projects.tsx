@@ -164,7 +164,7 @@ const Projects = () => {
                       )}
                     </div>
                   </div>
-                  <p className="text-sm font-medium text-primary/80">
+                  <p className="text-sm font-medium text-primary">
                     {project.role}
                   </p>
                 </div>

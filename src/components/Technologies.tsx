@@ -2,19 +2,17 @@ import { motion } from "framer-motion";
 
 const Technologies = () => {
   const techs = [
-
-    { name: "Angular", color: "text-red-500" },
-    { name: "Ionic", color: "text-blue-500" },
-    { name: "Flutter", color: "text-cyan-400" },
-    { name: "React", color: "text-cyan-400" },
-    { name: "React Native", color: "text-cyan-500" },
-    { name: "PixiJS", color: "text-pink-500" },
-    { name: "Laravel", color: "text-red-600" },
-    { name: "TypeScript", color: "text-blue-600" },
-    { name: "Dart", color: "text-teal-500" },
-    { name: 'Content Management System', color: 'text-yellow-500' },
-    { name: 'SEO', color: 'text-yellow-500' },
-
+    { name: "Angular", color: "text-tech-red" },
+    { name: "Ionic", color: "text-tech-blue" },
+    { name: "Flutter", color: "text-tech-cyan" },
+    { name: "React", color: "text-tech-cyan" },
+    { name: "React Native", color: "text-tech-cyan" },
+    { name: "PixiJS", color: "text-tech-pink" },
+    { name: "Laravel", color: "text-tech-red" },
+    { name: "TypeScript", color: "text-tech-blue" },
+    { name: "Dart", color: "text-tech-teal" },
+    { name: 'Content Management System', color: 'text-tech-yellow' },
+    { name: 'SEO', color: 'text-tech-yellow' },
   ];
 
   return (

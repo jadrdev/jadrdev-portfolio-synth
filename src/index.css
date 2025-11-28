@@ -24,7 +24,7 @@ All colors MUST be HSL.
     --secondary-foreground: 210 20% 98%;
 
     --muted: 220 15% 15%;
-    --muted-foreground: 210 10% 60%;
+    --muted-foreground: 210 10% 70%;
 
     --accent: 0 84% 60%;
     --accent-foreground: 210 20% 98%;
@@ -37,11 +37,19 @@ All colors MUST be HSL.
     --ring: 0 84% 60%;
 
     --radius: 0.75rem;
-    
+
     --gradient-primary: linear-gradient(135deg, hsl(0 84% 60%), hsl(0 72% 51%));
     --gradient-hero: linear-gradient(180deg, hsl(220 15% 8%), hsl(220 20% 12%));
     --glow-primary: 0 0 40px hsl(0 84% 60% / 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* WCAG AA compliant colors for technology tags */
+    --tech-red: 0 85% 70%;
+    --tech-blue: 210 90% 70%;
+    --tech-cyan: 190 85% 70%;
+    --tech-teal: 175 75% 65%;
+    --tech-pink: 330 80% 75%;
+    --tech-yellow: 45 95% 65%;
   }
 }
 
@@ -71,5 +79,30 @@ All colors MUST be HSL.
 
   .hover-lift {
     @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  /* WCAG AA compliant technology colors */
+  .text-tech-red {
+    color: hsl(var(--tech-red));
+  }
+
+  .text-tech-blue {
+    color: hsl(var(--tech-blue));
+  }
+
+  .text-tech-cyan {
+    color: hsl(var(--tech-cyan));
+  }
+
+  .text-tech-teal {
+    color: hsl(var(--tech-teal));
+  }
+
+  .text-tech-pink {
+    color: hsl(var(--tech-pink));
+  }
+
+  .text-tech-yellow {
+    color: hsl(var(--tech-yellow));
   }
 }
