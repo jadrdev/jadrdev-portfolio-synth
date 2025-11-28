@@ -3,10 +3,13 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import logoHorizontal from "@/assets/logo-final.png";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +19,19 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle scroll to section on mount or hash change if on home page
+  useEffect(() => {
+    if (location.pathname === "/" && location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        // Add a small delay to ensure content is rendered
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location.pathname, location.hash]);
 
   const navLinks = [
     { href: "#home", label: "Inicio" },
@@ -29,9 +45,16 @@ const Navbar = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
+
+    if (location.pathname === "/") {
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth" });
+      // Update URL hash without scrolling (since we did it manually)
+      window.history.pushState(null, "", href);
+    } else {
+      navigate(`/${href}`);
+    }
   };
 
   return (
