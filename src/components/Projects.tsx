@@ -1,46 +1,76 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Smartphone } from "lucide-react";
 import { Button } from "./ui/button";
+
+// Custom Apple icon component since it might not be in the current lucide-react version or to ensure consistency
+const AppleIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z" />
+    <path d="M10 2c1 .5 2 2 2 5" />
+  </svg>
+);
 
 const Projects = () => {
   const projects = [
     {
       title: "Jable Card - ACEA Lanzarote",
+      role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "App móvil de fidelización para asociación de comerciantes de Lanzarote. Sistema de puntos, ofertas y gestión de comercios.",
       tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
       link: "https://acealanzarote.com/jable-card/",
-      github: "#",
+      iosLink: "https://apps.apple.com/es/app/jable/id6744336880",
+      androidLink: "https://play.google.com/store/apps/details?id=es.jable.user.app&pli=1",
     },
     {
       title: "iHerro - Fidelización",
+      role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "Plataforma de fidelización completa con app móvil y panel de administración para asociaciones comerciales.",
       tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
       link: "https://iherro.com/",
-      github: "#",
+      iosLink: "https://apps.apple.com/es/app/iherro/id6743393970?l=en-GB",
+      androidLink: "https://play.google.com/store/apps/details?id=es.iherro.user.app&pli=1",
     },
     {
       title: "AppTalega",
+      role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "Sistema de fidelización y gestión de comercios con aplicación móvil multiplataforma y dashboard de administración.",
       tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
       link: "https://apptalega.com/",
-      github: "#",
+      iosLink: "https://apps.apple.com/us/app/talega/id6743695641?platform=iphone",
+      androidLink: "https://play.google.com/store/apps/details?id=es.talega.user.app",
     },
     {
       title: "PROSA Puerto del Rosario",
+      role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "App de fidelización para la asociación de comerciantes de Puerto del Rosario, con gestión de ofertas y beneficios.",
       tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
       link: "https://prosapuertodelrosario.com/",
-      github: "#",
+      iosLink: "https://apps.apple.com/us/app/prosa/id6743711087",
+      androidLink: "https://play.google.com/store/apps/details?id=es.prosa.user.app&hl=es_419",
     },
     {
       title: "Krondoc",
+      role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "Aplicación de control de fichaje para gestionar el control horario y reportes.",
       tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
       link: "https://krondoc.com/",
-      github: "#",
+      iosLink: "https://apps.apple.com/es/app/krondoc/id6741791280",
+      androidLink: "https://play.google.com/store/apps/details?id=com.krondoc.app&hl=es_419",
     },
     {
       title: "Gasolineras de Canarias",
+      role: "Proyecto Propio",
       description: "Aplicación móvil para localizar gasolineras en Canarias con precios actualizados y rutas optimizadas.",
       tags: ["Flutter", "Dart", "Google Maps API"],
       link: "https://jadrdev.github.io/gasolineras_can/",
@@ -77,32 +107,66 @@ const Projects = () => {
               className="bg-card border border-border rounded-xl p-6 hover-lift group"
             >
               <div className="space-y-4">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="flex gap-2">
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      className="h-8 w-8 p-0 hover:text-primary"
-                      asChild
-                    >
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      className="h-8 w-8 p-0 hover:text-primary"
-                      asChild
-                    >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4" />
-                      </a>
-                    </Button>
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-start justify-between">
+                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <div className="flex gap-2">
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="h-8 w-8 p-0 hover:text-primary"
+                        asChild
+                      >
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" title="Ver web">
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      </Button>
+
+                      {project.iosLink && (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="h-8 w-8 p-0 hover:text-primary"
+                          asChild
+                        >
+                          <a href={project.iosLink} target="_blank" rel="noopener noreferrer" title="App Store">
+                            <AppleIcon className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+
+                      {project.androidLink && (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="h-8 w-8 p-0 hover:text-primary"
+                          asChild
+                        >
+                          <a href={project.androidLink} target="_blank" rel="noopener noreferrer" title="Google Play">
+                            <Smartphone className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+
+                      {project.github && (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="h-8 w-8 p-0 hover:text-primary"
+                          asChild
+                        >
+                          <a href={project.github} target="_blank" rel="noopener noreferrer" title="Código fuente">
+                            <Github className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                    </div>
                   </div>
+                  <p className="text-sm font-medium text-primary/80">
+                    {project.role}
+                  </p>
                 </div>
 
                 <p className="text-muted-foreground">{project.description}</p>
