@@ -13,7 +13,6 @@ const Technologies = () => {
     { name: "TypeScript", color: "text-blue-600" },
     { name: "Dart", color: "text-teal-500" },
     { name: 'Content Management System', color: 'text-yellow-500' },
-    { name: 'Video Editing', color: 'text-yellow-500' },
     { name: 'SEO', color: 'text-yellow-500' },
 
   ];
