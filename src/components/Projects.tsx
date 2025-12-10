@@ -71,19 +71,18 @@ const Projects = () => {
     {
       "title": "Juego - Tejinenado",
       "role": "Senior Frontend en Servicios Avanzados de Opinión",
-      "description": "Adaptación y refactorización de una aplicación de juego basada en Pixi.js 8 para integrarla dentro de un entorno Ionic/Capacitor. Incluye la implementación de un sistema de escenas optimizado, mecánicas de combate, coplas dinámicas, minijuegos de preguntas y lógica de progresión. Integración con funcionalidades nativas mediante Capacitor, como geolocalización en tiempo real, almacenamiento local y soporte multiplataforma para iOS, Android y Web. Enfoque en la optimización gráfica, estabilidad y experiencia de usuario dentro de una arquitectura híbrida.",
+      "description": "Juego desarrollado con Pixi.js 8 integrado en Ionic/Capacitor, con sistemas de combate, coplas, preguntas y progresión. Incluye gestión de escenas, optimización gráfica y uso de funcionalidades nativas como geolocalización y almacenamiento local para iOS, Android y Web.",
       "tags": [
         "PixiJS 8",
         "Ionic",
         "Capacitor",
         "TypeScript",
         "Game Development",
-        "Geolocalización",
-        "Hybrid Apps"
+        "Geolocalización"
       ],
       "link": "https://tejineando.com/",
       "iosLink": "https://apps.apple.com/es/app/tejineando/id6748699961?platform=iphone",
-      "androidLink": "https://play.google.com/store/apps/details?id=com.v1.tejineando.app&hl=es",
+      "androidLink": "https://play.google.com/store/apps/details?id=com.v1.tejineando.app&hl=es"
     },
     {
       title: "Gasolineras de Canarias",
