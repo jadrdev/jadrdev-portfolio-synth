@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Mail, Twitter, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Twitter, Github, Linkedin, Send, Instagram, Youtube } from "lucide-react";
+import { Tiktok } from "./icons/Tiktok";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -18,7 +19,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -32,8 +33,6 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Configura tus credenciales de EmailJS aquí
-      // Obtén estos valores en: https://dashboard.emailjs.com/
       const serviceId = "service_81c64r8";
       const templateId = "template_e44jqfr";
       const publicKey = "YnY8LBtLLyDw3tVSx";
@@ -72,6 +71,9 @@ const Contact = () => {
   };
 
   const socialLinks = [
+    { icon: Instagram, href: "https://www.instagram.com/jadrdevcm", label: "Instagram" },
+    { icon: Tiktok, href: "https://www.tiktok.com/@jadrdevcm", label: "Tiktok" },
+    { icon: Youtube, href: "https://www.youtube.com/@jadrdevcm", label: "Youtube" },
     { icon: Twitter, href: "https://twitter.com/jadrdevcm", label: "Twitter" },
     { icon: Github, href: "https://github.com/jadrdev", label: "GitHub" },
     { icon: Linkedin, href: "https://linkedin.com/in/jadrdev", label: "LinkedIn" },

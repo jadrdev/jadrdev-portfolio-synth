@@ -42,6 +42,13 @@ const Projects = () => {
       androidLink: "https://play.google.com/store/apps/details?id=es.iherro.user.app&pli=1",
     },
     {
+      title: 'Juntos Por el Cole- iHerro',
+      role: 'Senior Frontend en Servicios Avanzados de Opinión',
+      description: 'Iniciativa que conecta el comercio local con la comunidad educativa de la isla de El Hierro, para recaudar fondos a través de las ventas y hacer posible el viaje de fin de curso',
+      tags: ['Ionic', 'Angular', 'TypeScript', 'Capacitor'],
+      link: 'https://juntosporcole.com/',
+    },
+    {
       title: "AppTalega",
       role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "Sistema de fidelización y gestión de comercios con aplicación móvil multiplataforma y dashboard de administración.",
