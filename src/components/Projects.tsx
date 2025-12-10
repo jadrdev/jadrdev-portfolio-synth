@@ -69,6 +69,23 @@ const Projects = () => {
       androidLink: "https://play.google.com/store/apps/details?id=com.krondoc.app&hl=es_419",
     },
     {
+      "title": "Juego - Tejinenado",
+      "role": "Senior Frontend en Servicios Avanzados de Opinión",
+      "description": "Adaptación y refactorización de una aplicación de juego basada en Pixi.js 8 para integrarla dentro de un entorno Ionic/Capacitor. Incluye la implementación de un sistema de escenas optimizado, mecánicas de combate, coplas dinámicas, minijuegos de preguntas y lógica de progresión. Integración con funcionalidades nativas mediante Capacitor, como geolocalización en tiempo real, almacenamiento local y soporte multiplataforma para iOS, Android y Web. Enfoque en la optimización gráfica, estabilidad y experiencia de usuario dentro de una arquitectura híbrida.",
+      "tags": [
+        "PixiJS 8",
+        "Ionic",
+        "Capacitor",
+        "TypeScript",
+        "Game Development",
+        "Geolocalización",
+        "Hybrid Apps"
+      ],
+      "link": "https://tejineando.com/",
+      "iosLink": "https://apps.apple.com/es/app/tejineando/id6748699961?platform=iphone",
+      "androidLink": "https://play.google.com/store/apps/details?id=com.v1.tejineando.app&hl=es",
+    },
+    {
       title: "Gasolineras de Canarias",
       role: "Proyecto Propio",
       description: "Aplicación móvil para localizar gasolineras en Canarias con precios actualizados y rutas optimizadas.",
