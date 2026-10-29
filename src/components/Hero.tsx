@@ -27,7 +27,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          <motion.h1 
+          <motion.p
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -35,16 +35,16 @@ const Hero = () => {
           >
             Hola, soy{" "}
             <span className="gradient-text">JadrDev</span>
-          </motion.h1>
+          </motion.p>
 
-          <motion.p
-            className="text-xl sm:text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto"
+          <motion.h1
+            className="text-xl sm:text-2xl md:text-3xl font-normal text-muted-foreground max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Frontend developer & mobile app creator
-          </motion.p>
+            Desarrollador de apps móviles y webs a medida en Canarias
+          </motion.h1>
 
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"

@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const GHOST_URL = "https://jadrdev.digitalpress.blog";
 const GHOST_KEY = "1b18ca37c79b3e4ca1be563eb9";
-const SITE_URL = "https://jadrdev.com";
+const SITE_URL = "https://www.jadrdev.com";
 
 async function generateSitemap() {
     try {
@@ -24,7 +24,8 @@ async function generateSitemap() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${SITE_URL}/</loc>
-    <changefreq>daily</changefreq>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   ${posts
@@ -40,8 +41,10 @@ async function generateSitemap() {
                 .join('')}
 </urlset>`;
 
-        const publicDir = path.resolve(__dirname, '../public');
-        const sitemapPath = path.join(publicDir, 'sitemap.xml');
+        // Runs after `vite build`, so write straight into the build output
+        const distDir = path.resolve(__dirname, '../dist');
+        fs.mkdirSync(distDir, { recursive: true });
+        const sitemapPath = path.join(distDir, 'sitemap.xml');
 
         fs.writeFileSync(sitemapPath, sitemap);
         console.log(`Sitemap generated at ${sitemapPath}`);

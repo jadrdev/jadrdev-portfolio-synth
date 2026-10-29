@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Loader2 } from "lucide-react";
-import { SEO } from "@/components/SEO";
+import { SEO, SITE_URL } from "@/components/SEO";
 
 const BlogPost = () => {
     const { slug } = useParams<{ slug: string }>();
@@ -42,7 +42,7 @@ const BlogPost = () => {
     if (isLoading) {
         return (
             <div className="min-h-screen flex flex-col">
-                <SEO title="Cargando..." description="Cargando artículo..." />
+                <SEO title="Cargando..." description="Cargando artículo..." noindex />
                 <Navbar />
                 <div className="flex-grow flex justify-center items-center">
                     <Loader2 className="w-12 h-12 animate-spin text-primary" />
@@ -55,7 +55,7 @@ const BlogPost = () => {
     if (error || !post) {
         return (
             <div className="min-h-screen flex flex-col">
-                <SEO title="Artículo no encontrado" description="El artículo que buscas no existe." />
+                <SEO title="Artículo no encontrado" description="El artículo que buscas no existe." noindex />
                 <Navbar />
                 <div className="flex-grow flex flex-col justify-center items-center p-4 text-center">
                     <h1 className="text-3xl font-bold mb-4">Artículo no encontrado</h1>
@@ -76,10 +76,24 @@ const BlogPost = () => {
     return (
         <div className="min-h-screen flex flex-col bg-background">
             <SEO
-                title={post.title}
-                description={post.excerpt || post.title}
-                image={post.feature_image || undefined}
+                title={post.meta_title || post.title}
+                description={post.meta_description || post.custom_excerpt || post.excerpt || post.title}
+                image={post.og_image || post.feature_image || undefined}
+                url={`${SITE_URL}/blog/${post.slug}`}
                 type="article"
+                jsonLd={{
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    headline: post.title,
+                    description: post.custom_excerpt || post.excerpt,
+                    image: post.feature_image || undefined,
+                    datePublished: post.published_at,
+                    dateModified: post.updated_at,
+                    inLanguage: "es",
+                    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+                    author: { "@type": "Person", "@id": `${SITE_URL}/#person`, name: "JadrDev", url: SITE_URL },
+                    publisher: { "@type": "Person", "@id": `${SITE_URL}/#person`, name: "JadrDev" },
+                }}
             />
             <Navbar />
 
