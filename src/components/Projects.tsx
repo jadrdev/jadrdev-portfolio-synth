@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Smartphone } from "lucide-react";
 import { Button } from "./ui/button";
+import jableIcon from "@/assets/projects/jable.webp";
+import iherroIcon from "@/assets/projects/iherro.webp";
+import talegaIcon from "@/assets/projects/talega.webp";
+import prosaIcon from "@/assets/projects/prosa.webp";
+import krondocIcon from "@/assets/projects/krondoc.webp";
+import tejineandoIcon from "@/assets/projects/tejineando.webp";
+import gasolinerasIcon from "@/assets/projects/gasolineras-canarias.webp";
+import pautaIcon from "@/assets/projects/pauta.webp";
 
 // Custom Apple icon component since it might not be in the current lucide-react version or to ensure consistency
 const AppleIcon = ({ className }: { className?: string }) => (
@@ -25,6 +33,7 @@ const Projects = () => {
   const projects = [
     {
       title: "Jable Card - ACEA Lanzarote",
+      icon: jableIcon,
       role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "App móvil de fidelización para asociación de comerciantes de Lanzarote. Sistema de puntos, ofertas y gestión de comercios.",
       tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
@@ -34,6 +43,7 @@ const Projects = () => {
     },
     {
       title: "iHerro - Fidelización",
+      icon: iherroIcon,
       role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "Plataforma de fidelización completa con app móvil y panel de administración para asociaciones comerciales.",
       tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
@@ -42,14 +52,8 @@ const Projects = () => {
       androidLink: "https://play.google.com/store/apps/details?id=es.iherro.user.app&pli=1",
     },
     {
-      title: 'Juntos Por el Cole- iHerro',
-      role: 'Senior Frontend en Servicios Avanzados de Opinión',
-      description: 'Iniciativa que conecta el comercio local con la comunidad educativa de la isla de El Hierro, para recaudar fondos a través de las ventas y hacer posible el viaje de fin de curso',
-      tags: ['Ionic', 'Angular', 'TypeScript', 'Capacitor'],
-      link: 'https://juntosporcole.com/',
-    },
-    {
       title: "AppTalega",
+      icon: talegaIcon,
       role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "Sistema de fidelización y gestión de comercios con aplicación móvil multiplataforma y dashboard de administración.",
       tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
@@ -59,6 +63,7 @@ const Projects = () => {
     },
     {
       title: "PROSA Puerto del Rosario",
+      icon: prosaIcon,
       role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "App de fidelización para la asociación de comerciantes de Puerto del Rosario, con gestión de ofertas y beneficios.",
       tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
@@ -68,6 +73,7 @@ const Projects = () => {
     },
     {
       title: "Krondoc",
+      icon: krondocIcon,
       role: "Senior Frontend en Servicios Avanzados de Opinión",
       description: "Aplicación de control de fichaje para gestionar el control horario y reportes.",
       tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
@@ -76,14 +82,13 @@ const Projects = () => {
       androidLink: "https://play.google.com/store/apps/details?id=com.krondoc.app&hl=es_419",
     },
     {
-      "title": "Juego - Tejinenado",
+      "title": "Juego - Tejineando",
+      "icon": tejineandoIcon,
       "role": "Senior Frontend en Servicios Avanzados de Opinión",
-      "description": "Juego desarrollado con Pixi.js 8 integrado en Ionic/Capacitor, con sistemas de combate, coplas, preguntas y progresión. Incluye gestión de escenas, optimización gráfica y uso de funcionalidades nativas como geolocalización y almacenamiento local para iOS, Android y Web.",
+      "description": "Juego móvil para iOS y Android desarrollado en Godot 4 —migrado desde Ionic + PixiJS—, con sistemas de combate, coplas, preguntas y progresión, y funcionalidades nativas como la geolocalización.",
       "tags": [
-        "PixiJS 8",
-        "Ionic",
-        "Capacitor",
-        "TypeScript",
+        "Godot 4",
+        "GDScript",
         "Game Development",
         "Geolocalización"
       ],
@@ -93,11 +98,20 @@ const Projects = () => {
     },
     {
       title: "Gasolineras de Canarias",
+      icon: gasolinerasIcon,
       role: "Proyecto Propio",
       description: "Aplicación móvil para localizar gasolineras en Canarias con precios actualizados y rutas optimizadas.",
       tags: ["Flutter", "Dart", "Google Maps API"],
       link: "https://jadrdev.github.io/gasolineras_can/",
       github: "https://github.com/jadrdev/gasolineras_can",
+    },
+    {
+      title: "Pauta",
+      icon: pautaIcon,
+      role: "Proyecto Propio",
+      description: "Gestor de tareas nativo en SwiftUI para macOS, con app de iOS, widgets y Apple Watch. Sin cuentas ni suscripciones: tus datos se sincronizan en tu propia carpeta de iCloud.",
+      tags: ["Swift", "SwiftUI", "macOS", "iOS", "iCloud"],
+      github: "https://github.com/jadrdev/pauta",
     },
   ];
 
@@ -130,22 +144,28 @@ const Projects = () => {
               className="bg-card border border-border rounded-xl p-6 hover-lift group"
             >
               <div className="space-y-4">
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-start justify-between">
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <div className="flex gap-2">
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        className="h-8 w-8 p-0 hover:text-primary"
-                        asChild
-                      >
-                        <a href={project.link} target="_blank" rel="noopener noreferrer" title="Ver web">
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
+                <div className="flex items-start justify-between gap-3">
+                  <img
+                    src={project.icon}
+                    alt={`Icono de la app ${project.title}`}
+                    width={64}
+                    height={64}
+                    loading="lazy"
+                    className="h-16 w-16 rounded-2xl shadow-md ring-1 ring-border object-cover"
+                  />
+                  <div className="flex gap-1">
+                      {project.link && (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="h-8 w-8 p-0 hover:text-primary"
+                          asChild
+                        >
+                          <a href={project.link} target="_blank" rel="noopener noreferrer" title="Ver web">
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
 
                       {project.iosLink && (
                         <Button
@@ -185,8 +205,13 @@ const Projects = () => {
                           </a>
                         </Button>
                       )}
-                    </div>
                   </div>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
                   <p className="text-sm font-medium text-primary">
                     {project.role}
                   </p>
