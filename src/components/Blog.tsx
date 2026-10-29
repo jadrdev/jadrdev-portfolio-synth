@@ -2,7 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { ghost, GhostPost } from "@/lib/ghostClient";
 import BlogCard from "./BlogCard";
 import { Button } from "./ui/button";
-import { Loader2, ExternalLink } from "lucide-react";
+import { Loader2, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Blog = () => {
@@ -59,9 +60,9 @@ const Blog = () => {
 
                 <div className="text-center mt-8">
                     <Button asChild size="lg" className="rounded-full px-8">
-                        <a href="https://jadrdev.digitalpress.blog" target="_blank" rel="noopener noreferrer">
-                            Ver todos los artículos <ExternalLink className="ml-2 w-4 h-4" />
-                        </a>
+                        <Link to="/blog">
+                            Ver todos los artículos <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
                     </Button>
                 </div>
             </div>

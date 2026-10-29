@@ -28,6 +28,12 @@ async function generateSitemap() {
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>${SITE_URL}/blog</loc>
+    <lastmod>${new Date(Math.max(...posts.map((post) => new Date(post.updated_at)))).toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   ${posts
                 .map(
                     (post) => `
