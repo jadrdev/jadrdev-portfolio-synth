@@ -1,27 +1,27 @@
 import { motion } from "framer-motion";
-import { Code, Smartphone, RefreshCw, Lightbulb } from "lucide-react";
+import { Code, Smartphone, RefreshCw, Store } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: Code,
-      title: "Desarrollo Frontend",
-      description: "Creación de interfaces web modernas y responsivas utilizando las últimas tecnologías como Angular y TypeScript.",
+      icon: Smartphone,
+      title: "Apps móviles para iOS y Android",
+      description: "Desarrollo tu app multiplataforma con Ionic, Capacitor o Flutter: un solo código para iOS, Android y Web, lista para publicar en las tiendas.",
     },
     {
-      icon: Smartphone,
-      title: "Desarrollo de Apps Móviles",
-      description: "Aplicaciones nativas y multiplataforma con Ionic, Flutter y Capacitor, optimizadas para iOS y Android.",
+      icon: Store,
+      title: "Apps de fidelización para comercios",
+      description: "Tarjetas de puntos, ofertas y campañas para asociaciones de comerciantes y negocios locales, con app para clientes y panel de gestión.",
+    },
+    {
+      icon: Code,
+      title: "Webs y paneles de gestión",
+      description: "Webs a medida y paneles de administración rápidos y responsivos con Angular y TypeScript, conectados a tu app o a tus sistemas.",
     },
     {
       icon: RefreshCw,
-      title: "Migraciones Tecnológicas",
-      description: "Actualización y modernización de proyectos: Ionic a Flutter, PixiJS legacy a PixiJS 8, y más.",
-    },
-    {
-      icon: Lightbulb,
-      title: "Consultoría Técnica",
-      description: "Asesoramiento en arquitectura de software, selección de tecnologías y mejores prácticas de desarrollo.",
+      title: "Migración, mantenimiento y consultoría",
+      description: "Modernizo apps existentes (de Ionic a Flutter, PixiJS legacy a PixiJS 8…) y te asesoro sobre arquitectura y la tecnología más adecuada.",
     },
   ];
 
@@ -36,10 +36,10 @@ const Services = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            Lo que <span className="gradient-text">hago</span>
+            ¿En qué te puedo <span className="gradient-text">ayudar</span>?
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Servicios especializados en desarrollo web y móvil
+            Servicios de desarrollo de apps móviles y webs para empresas, comercios y asociaciones
           </p>
         </motion.div>
 

@@ -6,6 +6,9 @@ import Blog from "@/components/Blog";
 import Services from "@/components/Services";
 import Technologies from "@/components/Technologies";
 import Contact from "@/components/Contact";
+import Process from "@/components/Process";
+import FAQ from "@/components/FAQ";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 import { SEO, SITE_URL } from "@/components/SEO";
 
@@ -39,6 +42,7 @@ const jsonLd = [
     url: SITE_URL,
     image: `${SITE_URL}/og-image-final.png`,
     email: "info@jadrdev.com",
+    telephone: "+34611831797",
     founder: { "@id": `${SITE_URL}/#person` },
     areaServed: [
       { "@type": "AdministrativeArea", name: "Canarias" },
@@ -60,21 +64,24 @@ const Index = () => {
     <div className="min-h-screen">
       <SEO
         title="Desarrollador de Apps Móviles en Canarias | Ionic, Angular y Flutter – JadrDev"
-        description="Creo apps móviles para iOS y Android y webs a medida para comercios, asociaciones y empresas en Canarias. Más de 8 apps publicadas. Pide presupuesto sin compromiso."
+        description="Creo apps móviles para iOS y Android y webs a medida para comercios, asociaciones y empresas en Canarias. 6 apps publicadas en App Store y Google Play. Pide presupuesto sin compromiso."
         url={`${SITE_URL}/`}
         jsonLd={jsonLd}
       />
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Projects />
-        <Blog />
         <Services />
+        <Projects />
+        <Process />
+        <About />
         <Technologies />
+        <Blog />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

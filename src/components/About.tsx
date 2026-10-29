@@ -24,7 +24,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 sm:py-32 bg-muted/30">
+    <section id="about" className="py-20 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Intro */}

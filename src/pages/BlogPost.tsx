@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Loader2 } from "lucide-react";
 import { SEO, SITE_URL } from "@/components/SEO";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const BlogPost = () => {
     const { slug } = useParams<{ slug: string }>();
@@ -165,6 +166,7 @@ const BlogPost = () => {
             </main>
 
             <Footer />
+            <WhatsAppButton />
         </div>
     );
 };

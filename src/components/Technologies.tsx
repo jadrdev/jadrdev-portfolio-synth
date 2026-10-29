@@ -16,7 +16,7 @@ const Technologies = () => {
   ];
 
   return (
-    <section id="technologies" className="py-20 sm:py-32">
+    <section id="technologies" className="py-20 sm:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -34,13 +34,12 @@ const Navbar = () => {
   }, [location.pathname, location.hash]);
 
   const navLinks = [
-    { href: "#home", label: "Inicio" },
-    { href: "#about", label: "Sobre mí" },
-    { href: "#projects", label: "Proyectos" },
-    { href: "#blog", label: "Blog" },
     { href: "#services", label: "Servicios" },
-    { href: "#technologies", label: "Tecnologías" },
-    { href: "#contact", label: "Contacto" },
+    { href: "#projects", label: "Proyectos" },
+    { href: "#process", label: "Cómo trabajo" },
+    { href: "#about", label: "Sobre mí" },
+    { href: "#blog", label: "Blog" },
+    { href: "#faq", label: "FAQ" },
   ];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -95,11 +94,21 @@ const Navbar = () => {
                 {link.label}
               </motion.a>
             ))}
+            <Button
+              asChild
+              size="sm"
+              className="ml-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+            >
+              <a href="#contact" onClick={(e) => handleClick(e, "#contact")}>
+                Pide presupuesto
+              </a>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
+              aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
@@ -130,6 +139,11 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+              <a href="#contact" onClick={(e) => handleClick(e, "#contact")}>
+                Pide presupuesto
+              </a>
+            </Button>
           </div>
         </motion.div>
       )}
