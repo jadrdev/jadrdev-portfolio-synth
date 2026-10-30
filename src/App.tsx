@@ -8,6 +8,7 @@ import BlogList from "./pages/BlogList";
 import BlogPost from "./pages/BlogPost";
 import ServicePage from "./pages/ServicePage";
 import NotFound from "./pages/NotFound";
+import Tracking from "./components/Tracking";
 
 // The router and the query client are provided by the entry point: BrowserRouter in
 // the browser (main.tsx) and StaticRouter when prerendering (entry-server.tsx).
@@ -16,6 +17,7 @@ const App = ({ queryClient }: { queryClient: QueryClient }) => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <Tracking />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/blog" element={<BlogList />} />

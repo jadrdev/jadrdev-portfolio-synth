@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { track } from "@vercel/analytics/react";
 import { Mail, Twitter, Github, Linkedin, Send, Instagram, Youtube, MessageCircle } from "lucide-react";
 import { WHATSAPP_URL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { Tiktok } from "./icons/Tiktok";
@@ -77,6 +78,11 @@ const Contact = () => {
         templateParams,
         publicKey
       );
+
+      track("Formulario enviado", {
+        tipo: formData.projectType || "-",
+        presupuesto: formData.budget || "-",
+      });
 
       toast({
         title: "¡Mensaje enviado!",
