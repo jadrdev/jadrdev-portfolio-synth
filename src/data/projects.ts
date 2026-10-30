@@ -6,6 +6,9 @@ import krondocIcon from "@/assets/projects/krondoc.webp";
 import tejineandoIcon from "@/assets/projects/tejineando.webp";
 import gasolinerasIcon from "@/assets/projects/gasolineras-canarias.webp";
 import pautaIcon from "@/assets/projects/pauta.webp";
+import tenerifeBikeToursIcon from "@/assets/projects/tenerife-bike-tours.webp";
+import fabrikBarberIcon from "@/assets/projects/fabrik-barber.webp";
+import gesfincIcon from "@/assets/projects/gesfinc.webp";
 
 export interface Project {
   title: string;
@@ -92,6 +95,33 @@ export const projects: Project[] = [
     link: "https://tejineando.com/",
     iosLink: "https://apps.apple.com/es/app/tejineando/id6748699961?platform=iphone",
     androidLink: "https://play.google.com/store/apps/details?id=com.v1.tejineando.app&hl=es"
+  },
+  {
+    title: "Tenerife Bike Tours",
+    services: ["desarrollo-web-paneles"],
+    icon: tenerifeBikeToursIcon,
+    role: "Desarrollo web",
+    description: "Web en WordPress de una empresa de cicloturismo en Tenerife: optimización de imágenes, SEO técnico, seguridad, protección antispam del formulario de reservas y páginas legales.",
+    tags: ["WordPress", "PHP", "SEO", "Rendimiento"],
+    link: "https://tenerifebiketours.com/",
+  },
+  {
+    title: "Fabrik Barber",
+    services: ["desarrollo-web-paneles"],
+    icon: fabrikBarberIcon,
+    role: "Desarrollo web",
+    description: "Web corporativa de una barbería y peluquería en Tenerife, con sus servicios y datos de contacto.",
+    tags: ["WordPress", "WPBakery", "Diseño responsive"],
+    link: "https://fabrikbarber.com/",
+  },
+  {
+    title: "Gesfinc Canarias",
+    services: ["desarrollo-web-paneles"],
+    icon: gesfincIcon,
+    role: "Desarrollo web",
+    description: "Web corporativa de una empresa de administración de fincas en Canarias, con presentación de servicios, blog y acceso a su app para propietarios.",
+    tags: ["WordPress", "Elementor", "Blog"],
+    link: "https://gesfinc.com/",
   },
   {
     title: "Gasolineras de Canarias",

@@ -138,14 +138,14 @@ export const services: Service[] = [
     icon: Code,
     title: "Webs y paneles de gestión",
     summary:
-      "Webs a medida y paneles de administración rápidos y responsivos con Angular y TypeScript, conectados a tu app o a tus sistemas.",
-    seoTitle: "Desarrollo web a medida y paneles de gestión con Angular",
+      "Webs a medida en WordPress o Angular y paneles de administración rápidos y responsivos, conectados a tu app o a tus sistemas.",
+    seoTitle: "Desarrollo web a medida en Canarias: WordPress y paneles de gestión",
     seoDescription:
-      "Desarrollo de webs a medida y paneles de administración con Angular y TypeScript: rápidos, responsivos y conectados a tu app o a tus sistemas. Pide presupuesto.",
+      "Desarrollo de webs a medida en WordPress y paneles de administración con Angular: rápidas, optimizadas para SEO y conectadas a tu app o a tus sistemas. Pide presupuesto.",
     heading: "Webs a medida y paneles de gestión",
     intro: [
       "Detrás de una buena app casi siempre hay un panel de gestión: el lugar desde donde tu equipo controla usuarios, contenidos, pedidos o estadísticas. Desarrollo esos paneles y también webs a medida para tu negocio.",
-      "Trabajo con Angular y TypeScript para crear interfaces rápidas, fiables y fáciles de mantener, que se adaptan a cualquier pantalla.",
+      "Trabajo con WordPress para webs corporativas que puedes gestionar tú mismo, y con Angular y TypeScript para paneles y aplicaciones web a medida. En todos los casos, rápidas, seguras y adaptadas a cualquier pantalla.",
     ],
     includes: [
       {
