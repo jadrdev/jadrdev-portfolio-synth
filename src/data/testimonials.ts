@@ -9,4 +9,17 @@ export interface Testimonial {
 }
 
 // Only real, client-approved quotes go here. The section stays hidden while it is empty.
-export const testimonials: Testimonial[] = [];
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Necesitábamos una web sencilla que mostrara la barbería y facilitara que los clientes nos encontraran. JadrDev entendió lo que queríamos desde el principio y el resultado es justo lo que buscábamos.",
+    name: "Eduardo",
+    company: "Fabrik Barber",
+    project: "Web de la barbería",
+  },
+  {
+    quote: "Nos desarrolló la web y también una app. Rápido, resolutivo y siempre pendiente de los detalles.",
+    company: "Gesfinc Canarias",
+    project: "Web y app",
+  },
+];
