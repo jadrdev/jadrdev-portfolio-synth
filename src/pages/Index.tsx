@@ -4,7 +4,6 @@ import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Blog from "@/components/Blog";
 import Services from "@/components/Services";
-import Technologies from "@/components/Technologies";
 import Contact from "@/components/Contact";
 import Process from "@/components/Process";
 import FAQ from "@/components/FAQ";
@@ -28,7 +27,7 @@ const jsonLd = [
     "@id": `${SITE_URL}/#person`,
     name: "JadrDev",
     url: SITE_URL,
-    image: `${SITE_URL}/og-image-final.png`,
+    image: `${SITE_URL}/og-image.jpg`,
     jobTitle: "Desarrollador Frontend y de Apps Móviles",
     email: "mailto:info@jadrdev.com",
     knowsAbout: ["Angular", "Ionic", "Flutter", "Capacitor", "TypeScript", "Desarrollo de apps móviles"],
@@ -40,7 +39,7 @@ const jsonLd = [
     "@id": `${SITE_URL}/#service`,
     name: "JadrDev - Desarrollo de apps móviles y webs",
     url: SITE_URL,
-    image: `${SITE_URL}/og-image-final.png`,
+    image: `${SITE_URL}/og-image.jpg`,
     email: "info@jadrdev.com",
     telephone: "+34611831797",
     founder: { "@id": `${SITE_URL}/#person` },
@@ -75,7 +74,6 @@ const Index = () => {
         <Projects />
         <Process />
         <About />
-        <Technologies />
         <Blog />
         <FAQ />
         <Contact />

@@ -19,7 +19,7 @@ const toAbsolute = (path: string) => (path.startsWith('http') ? path : `${SITE_U
 export const SEO = ({
     title,
     description,
-    image = '/og-image-final.png',
+    image = '/og-image.jpg',
     url,
     type = 'website',
     noindex = false,

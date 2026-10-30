@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { ghost, GhostPost } from "@/lib/ghostClient";
+import { postQuery } from "@/lib/blogQueries";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import { motion } from "framer-motion";
@@ -20,14 +20,7 @@ const BlogPost = () => {
     }, []);
 
     const { data: post, isLoading, error } = useQuery({
-        queryKey: ["ghost-post", slug],
-        queryFn: async () => {
-            if (!slug) throw new Error("No slug provided");
-            return await ghost.posts.read({
-                slug,
-                include: ["tags", "authors"],
-            });
-        },
+        ...postQuery(slug ?? ""),
         enabled: !!slug,
     });
 

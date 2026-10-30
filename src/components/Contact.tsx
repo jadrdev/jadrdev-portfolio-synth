@@ -7,7 +7,6 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from "@emailjs/browser";
 
 const projectTypes = [
   "App móvil (iOS y Android)",
@@ -70,6 +69,8 @@ const Contact = () => {
         to_name: "Jadrdev", // Tu nombre
       };
 
+      // Loaded on demand: only needed when someone actually sends the form
+      const { default: emailjs } = await import("@emailjs/browser");
       await emailjs.send(
         serviceId,
         templateId,
@@ -108,7 +109,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 sm:py-32">
+    <section id="contact" className="py-20 sm:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

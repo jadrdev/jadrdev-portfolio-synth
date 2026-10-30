@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { ghost, GhostPost } from "@/lib/ghostClient";
+import { latestPostsQuery } from "@/lib/blogQueries";
 import BlogCard from "./BlogCard";
 import { Button } from "./ui/button";
 import { Loader2, ArrowRight } from "lucide-react";
@@ -7,15 +7,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Blog = () => {
-    const { data: posts, isLoading, error } = useQuery({
-        queryKey: ["ghost-posts"],
-        queryFn: async () => {
-            return await ghost.posts.browse({
-                limit: 3,
-                include: ["tags", "authors"],
-            });
-        },
-    });
+    const { data: posts, isLoading, error } = useQuery(latestPostsQuery);
 
     if (error) {
         console.error("Error fetching blog posts:", error);
@@ -23,7 +15,7 @@ const Blog = () => {
     }
 
     return (
-        <section id="blog" className="py-20 relative overflow-hidden">
+        <section id="blog" className="py-20 sm:py-32 bg-muted/30 relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
                 <div className="absolute top-1/4 -right-64 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -53,7 +45,7 @@ const Blog = () => {
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                         {posts?.map((post, index) => (
-                            <BlogCard key={post.id} post={post as GhostPost} index={index} />
+                            <BlogCard key={post.id} post={post} index={index} />
                         ))}
                     </div>
                 )}

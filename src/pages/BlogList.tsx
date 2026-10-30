@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
-import { ghost, GhostPost } from "@/lib/ghostClient";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlogCard from "@/components/BlogCard";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SEO, SITE_URL } from "@/components/SEO";
+import { allPostsQuery } from "@/lib/blogQueries";
 
 const BlogList = () => {
     const [activeTag, setActiveTag] = useState<string | null>(null);
@@ -15,15 +15,7 @@ const BlogList = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const { data: posts, isLoading, error } = useQuery({
-        queryKey: ["ghost-posts-all"],
-        queryFn: async () => {
-            return (await ghost.posts.browse({
-                limit: "all",
-                include: ["tags", "authors"],
-            })) as unknown as GhostPost[];
-        },
-    });
+    const { data: posts, isLoading, error } = useQuery(allPostsQuery);
 
     const tags = useMemo(() => {
         const counts = new Map<string, { name: string; count: number }>();

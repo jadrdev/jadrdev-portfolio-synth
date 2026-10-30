@@ -47,7 +47,7 @@ const faqJsonLd = {
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 sm:py-32 bg-muted/30">
+    <section id="faq" className="py-20 sm:py-32">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>

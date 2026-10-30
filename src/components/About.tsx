@@ -1,6 +1,23 @@
 import { motion } from "framer-motion";
 import { Code2, Smartphone, Sparkles } from "lucide-react";
 
+const techs = [
+  { name: "Angular", color: "text-tech-red" },
+  { name: "Ionic", color: "text-tech-blue" },
+  { name: "Flutter", color: "text-tech-cyan" },
+  { name: "Capacitor", color: "text-tech-blue" },
+  { name: "React", color: "text-tech-cyan" },
+  { name: "React Native", color: "text-tech-cyan" },
+  { name: "PixiJS", color: "text-tech-pink" },
+  { name: "Godot", color: "text-tech-teal" },
+  { name: "Swift", color: "text-tech-red" },
+  { name: "Laravel", color: "text-tech-red" },
+  { name: "TypeScript", color: "text-tech-blue" },
+  { name: "Dart", color: "text-tech-teal" },
+  { name: 'Content Management System', color: 'text-tech-yellow' },
+  { name: 'SEO', color: 'text-tech-yellow' },
+];
+
 const About = () => {
   const features = [
     {
@@ -75,6 +92,28 @@ const About = () => {
           ))}
         </div>
 
+        {/* Tech stack */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mt-16 text-center"
+        >
+          <h3 id="technologies" className="text-2xl font-semibold mb-6">
+            Tecnologías que uso
+          </h3>
+          <ul className="flex flex-wrap justify-center gap-3">
+            {techs.map((tech) => (
+              <li
+                key={tech.name}
+                className="px-4 py-2 bg-card border border-border rounded-lg hover:border-primary transition-colors"
+              >
+                <span className={`font-semibold ${tech.color}`}>{tech.name}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </div>
     </section>
   );

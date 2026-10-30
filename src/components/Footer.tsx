@@ -1,26 +1,60 @@
-import { Music2 } from "lucide-react";
-import logoIcon from "@/assets/logo-final.png";
+import { Link } from "react-router-dom";
+import logo from "@/assets/logo.webp";
+import { services } from "@/data/services";
+import { WHATSAPP_URL, WHATSAPP_DISPLAY } from "@/lib/contact";
 
 const Footer = () => {
   return (
-    <footer className="bg-card border-t border-border py-8">
+    <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center space-y-4">
-          <img
-            src={logoIcon}
-            alt="JadrDev"
-            className="h-12 w-auto opacity-80"
-          />
-          <div className="flex items-center gap-2">
-            <Music2 className="w-5 h-5 text-primary" />
-            <span className="text-sm text-muted-foreground">
-              Made with code and creativity
-            </span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+          <div className="space-y-4">
+            <Link to="/" className="inline-block">
+              <img src={logo} alt="JadrDev" width={360} height={208} className="h-12 w-auto opacity-80 mx-auto md:mx-0" />
+            </Link>
+            <p className="text-sm text-muted-foreground">
+              Desarrollo de apps móviles y webs a medida para empresas, comercios y asociaciones de Canarias y toda España.
+            </p>
           </div>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} JadrDev. All rights reserved.
-          </p>
+
+          <nav aria-label="Servicios">
+            <h2 className="font-semibold mb-4">Servicios</h2>
+            <ul className="space-y-2 text-sm">
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link to={`/servicios/${service.slug}`} className="text-muted-foreground hover:text-primary transition-colors">
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <h2 className="font-semibold mb-4">Contacto</h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="mailto:info@jadrdev.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  info@jadrdev.com
+                </a>
+              </li>
+              <li>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  WhatsApp: {WHATSAPP_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <p className="text-sm text-muted-foreground text-center mt-10 pt-6 border-t border-border">
+          © {new Date().getFullYear()} JadrDev. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
   );

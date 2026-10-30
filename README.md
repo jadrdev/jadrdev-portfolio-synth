@@ -1,73 +1,37 @@
-# Welcome to your Lovable project
+# jadrdev.com
 
-## Project info
+Web y portfolio de JadrDev: desarrollo de apps móviles y webs a medida.
 
-**URL**: https://lovable.dev/projects/81f6ee05-3bf3-49e4-af22-b4005670ec07
+- **Stack:** React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui, Framer Motion.
+- **Blog:** los artículos se escriben en Ghost (modo privado) y se leen con la Content API.
+- **Despliegue:** Vercel, automático al hacer push a `main`.
 
-## How can I edit this code?
+## Desarrollo
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/81f6ee05-3bf3-49e4-af22-b4005670ec07) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Build
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+`npm run build` hace tres pasos:
 
-**Use GitHub Codespaces**
+1. `vite build`: build del cliente en `dist/`.
+2. `vite build --ssr src/entry-server.tsx --outDir dist-server`: build para renderizar en Node.
+3. `node scripts/prerender.js`: genera el HTML estático de cada ruta (home, `/blog`,
+   artículos y páginas de servicios) y el `sitemap.xml`.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Las rutas prerenderizadas se sirven como HTML estático (`cleanUrls` en `vercel.json`); el resto
+recibe `shell.html` y se renderiza en el navegador. Los artículos publicados después del último
+despliegue aparecen igualmente, pero sin prerenderizar hasta el siguiente despliegue.
 
-## What technologies are used for this project?
+## Dónde cambiar las cosas
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/81f6ee05-3bf3-49e4-af22-b4005670ec07) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+| Qué | Dónde |
+|---|---|
+| Proyectos del portfolio | `src/data/projects.ts` (iconos en `src/assets/projects/`) |
+| Servicios y sus páginas | `src/data/services.ts` |
+| WhatsApp | `src/lib/contact.ts` |
+| Metadatos SEO por defecto | `src/components/SEO.tsx` e `index.html` |
+| Conexión con Ghost | `src/lib/ghostClient.ts` (o variables `VITE_GHOST_API_URL` y `VITE_GHOST_CONTENT_API_KEY`) |

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, MapPin, Smartphone, Layers, Rocket } from "lucide-react";
 import { Button } from "./ui/button";
-import heroImage from "@/assets/hero-image.jpg";
+import heroImage from "@/assets/hero-image.webp";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 

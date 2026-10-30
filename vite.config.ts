@@ -9,6 +9,16 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  build: {
+    // Never inline assets: the prerendered HTML and the client bundle must reference
+    // the same image URLs
+    assetsInlineLimit: 0,
+  },
+  ssr: {
+    // CommonJS packages without proper ESM named exports; bundle them into the
+    // server build instead of importing them from node_modules at prerender time
+    noExternal: ["react-helmet-async"],
+  },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {

@@ -14,9 +14,9 @@ const NotFound = () => {
       <SEO title="Página no encontrada" description="La página que buscas no existe." noindex />
       <div className="text-center">
         <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
+        <p className="mb-4 text-xl text-muted-foreground">La página que buscas no existe</p>
         <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
+          Volver al inicio
         </a>
       </div>
     </div>

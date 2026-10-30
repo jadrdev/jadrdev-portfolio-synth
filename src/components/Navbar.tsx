@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import logoHorizontal from "@/assets/logo-final.png";
+import logoHorizontal from "@/assets/logo.webp";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -75,6 +75,8 @@ const Navbar = () => {
             <img
               src={logoHorizontal}
               alt="JadrDev Logo"
+              width={360}
+              height={208}
               className="h-14 w-auto sm:h-16 md:h-20"
             />
           </motion.a>
