@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { track } from "@vercel/analytics/react";
-import { Mail, Twitter, Github, Linkedin, Send, Instagram, Youtube, MessageCircle } from "lucide-react";
+import { Mail, Github, Linkedin, Send, Youtube, MessageCircle } from "lucide-react";
 import { WHATSAPP_URL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { Tiktok } from "./icons/Tiktok";
+import { XLogo } from "./icons/XLogo";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -104,12 +105,11 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: Instagram, href: "https://www.instagram.com/jadrdevcm", label: "Instagram" },
-    { icon: Tiktok, href: "https://www.tiktok.com/@jadrdevcm", label: "Tiktok" },
-    { icon: Youtube, href: "https://www.youtube.com/@jadrdevcm", label: "Youtube" },
-    { icon: Twitter, href: "https://twitter.com/jadrdevcm", label: "Twitter" },
+    { icon: Tiktok, href: "https://www.tiktok.com/@jadrdev", label: "TikTok" },
+    { icon: Youtube, href: "https://www.youtube.com/@jadrdevcm", label: "YouTube" },
+    { icon: XLogo, href: "https://x.com/jadrdev", label: "X" },
     { icon: Github, href: "https://github.com/jadrdev", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/jadrdev", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/jadrdev/", label: "LinkedIn" },
     { icon: MessageCircle, href: WHATSAPP_URL, label: "WhatsApp" },
     { icon: Mail, href: "mailto:info@jadrdev.com", label: "Email" },
   ];

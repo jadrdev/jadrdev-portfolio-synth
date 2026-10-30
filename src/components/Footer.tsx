@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.webp";
+import Logo from "@/components/Logo";
 import { services } from "@/data/services";
 import { WHATSAPP_URL, WHATSAPP_DISPLAY } from "@/lib/contact";
 
@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
           <div className="space-y-4">
             <Link to="/" className="inline-block">
-              <img src={logo} alt="JadrDev" width={360} height={208} className="h-12 w-auto opacity-80 mx-auto md:mx-0" />
+              <Logo tagline className="text-4xl" />
             </Link>
             <p className="text-sm text-muted-foreground">
               Desarrollo de apps móviles y webs a medida para empresas, comercios y asociaciones de Canarias y toda España.

@@ -13,12 +13,11 @@ import Footer from "@/components/Footer";
 import { SEO, SITE_URL } from "@/components/SEO";
 
 const sameAs = [
-  "https://www.instagram.com/jadrdevcm",
-  "https://www.tiktok.com/@jadrdevcm",
+  "https://www.tiktok.com/@jadrdev",
   "https://www.youtube.com/@jadrdevcm",
-  "https://twitter.com/jadrdevcm",
+  "https://x.com/jadrdev",
   "https://github.com/jadrdev",
-  "https://linkedin.com/in/jadrdev",
+  "https://www.linkedin.com/in/jadrdev/",
 ];
 
 const jsonLd = [

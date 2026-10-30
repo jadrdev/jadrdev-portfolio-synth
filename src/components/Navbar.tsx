@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import logoHorizontal from "@/assets/logo.webp";
+import Logo from "@/components/Logo";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -72,13 +72,7 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
             onClick={(e) => handleClick(e, "#home")}
           >
-            <img
-              src={logoHorizontal}
-              alt="JadrDev Logo"
-              width={360}
-              height={208}
-              className="h-14 w-auto sm:h-16 md:h-20"
-            />
+            <Logo className="text-2xl sm:text-3xl" />
           </motion.a>
 
           {/* Desktop Navigation */}
