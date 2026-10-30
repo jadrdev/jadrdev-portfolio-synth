@@ -3,7 +3,7 @@ import GhostContentAPI from "@tryghost/content-api";
 // Create API instance with site credentials
 export const ghost = new GhostContentAPI({
     url: import.meta.env.VITE_GHOST_API_URL || "https://jadrdev.digitalpress.blog",
-    key: import.meta.env.VITE_GHOST_CONTENT_API_KEY || "1b18ca37c79b3e4ca1be563eb9",
+    key: import.meta.env.VITE_GHOST_CONTENT_API_KEY || "dba7d0fd06d3c0f72ef1266d2c",
     version: "v5.0"
 });
 
