@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const GHOST_URL = "https://jadrdev.digitalpress.blog";
-const GHOST_KEY = "1b18ca37c79b3e4ca1be563eb9";
+const GHOST_KEY = "dba7d0fd06d3c0f72ef1266d2c";
 const SITE_URL = "https://www.jadrdev.com";
 
 async function generateSitemap() {
