@@ -22,14 +22,14 @@ export const services: Service[] = [
     icon: Smartphone,
     title: "Apps móviles para iOS y Android",
     summary:
-      "Desarrollo tu app multiplataforma con Ionic, Capacitor o Flutter: un solo código para iOS, Android y Web, lista para publicar en las tiendas.",
+      "Apps multiplataforma con Ionic o Flutter para iOS, Android y Web, o apps nativas en Swift y SwiftUI para el ecosistema Apple. Listas para publicar en las tiendas.",
     seoTitle: "Desarrollo de apps móviles para iOS y Android en Canarias",
     seoDescription:
-      "Desarrollo de apps móviles multiplataforma para iOS, Android y Web con Ionic, Capacitor y Flutter. Del diseño a la publicación en App Store y Google Play. Pide presupuesto.",
+      "Desarrollo de apps móviles para iOS y Android: multiplataforma con Ionic y Flutter o nativas en Swift y SwiftUI. Del diseño a la publicación en App Store y Google Play. Pide presupuesto.",
     heading: "Desarrollo de apps móviles para iOS y Android",
     intro: [
-      "Convierto tu idea en una app real, publicada en App Store y Google Play. Trabajo con tecnologías multiplataforma como Ionic, Capacitor y Flutter, que permiten tener la app en iOS, Android y Web a partir de una única base de código.",
-      "Eso significa menos coste de desarrollo, un mantenimiento más sencillo y la misma experiencia para todos tus usuarios, tengan el móvil que tengan.",
+      "Convierto tu idea en una app real, publicada en App Store y Google Play. Trabajo con tecnologías multiplataforma como Ionic y Flutter, que permiten tener la app en iOS, Android y Web a partir de una única base de código, y desarrollo apps nativas en Swift y SwiftUI cuando el proyecto pide lo mejor de iPhone, iPad, Mac o Apple Watch.",
+      "Elegimos juntos la opción que mejor encaja: multiplataforma para llegar a todos con menos coste, o nativa para exprimir al máximo el ecosistema Apple.",
     ],
     includes: [
       {
@@ -38,7 +38,11 @@ export const services: Service[] = [
       },
       {
         title: "Desarrollo multiplataforma",
-        description: "Una sola base de código para iOS, Android y Web con Ionic, Capacitor o Flutter.",
+        description: "Una sola base de código para iOS, Android y Web con Ionic o Flutter.",
+      },
+      {
+        title: "Apps nativas para Apple",
+        description: "Apps en Swift y SwiftUI para iPhone, iPad, Mac y Apple Watch, con widgets y sincronización con iCloud.",
       },
       {
         title: "Funcionalidades nativas",
@@ -66,12 +70,12 @@ export const services: Service[] = [
       {
         question: "¿Es mejor una app nativa o una multiplataforma?",
         answer:
-          "Para la mayoría de proyectos una app multiplataforma es la opción más rentable: un solo código para iOS y Android con un rendimiento excelente. Si tu proyecto necesita algo muy específico de una plataforma, te lo diré en la propuesta.",
+          "Para la mayoría de proyectos una app multiplataforma es la opción más rentable: un solo código para iOS y Android con un rendimiento excelente. Si tu app es solo para el ecosistema Apple o necesita widgets, Apple Watch o la máxima integración con el sistema, la desarrollo nativa en Swift y SwiftUI, como Pauta.",
       },
       {
         question: "¿La app funcionará también en la web?",
         answer:
-          "Con Ionic y Capacitor la misma app puede publicarse también como aplicación web (PWA), sin desarrollar una versión aparte.",
+          "Con Ionic la misma app puede publicarse también como aplicación web (PWA), sin desarrollar una versión aparte.",
       },
     ],
   },

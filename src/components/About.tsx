@@ -5,7 +5,7 @@ const techs = [
   { name: "Angular", color: "text-tech-red" },
   { name: "Ionic", color: "text-tech-blue" },
   { name: "Flutter", color: "text-tech-cyan" },
-  { name: "Capacitor", color: "text-tech-blue" },
+  { name: "SwiftUI", color: "text-tech-blue" },
   { name: "React", color: "text-tech-cyan" },
   { name: "React Native", color: "text-tech-cyan" },
   { name: "PixiJS", color: "text-tech-pink" },
@@ -30,7 +30,7 @@ const About = () => {
       icon: Smartphone,
       title: "Mobile Apps",
       description:
-        "Experiencia en Ionic, Flutter y Capacitor para crear apps multiplataforma listas para iOS, Android y Web.",
+        "Apps multiplataforma con Ionic y Flutter para iOS, Android y Web, y apps nativas en Swift y SwiftUI para el ecosistema Apple.",
     },
     {
       icon: Sparkles,
@@ -63,7 +63,7 @@ const About = () => {
             <span className="text-primary font-semibold"> Angular</span>, 
             <span className="text-primary font-semibold"> Ionic</span>,
             <span className="text-primary font-semibold"> Flutter</span> y 
-            <span className="text-primary font-semibold"> Capacitor</span> para 
+            <span className="text-primary font-semibold"> Swift</span> para 
             transformar ideas en productos digitales reales.
           </p>
 

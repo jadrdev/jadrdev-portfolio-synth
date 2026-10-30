@@ -16,7 +16,7 @@ const faqs = [
   {
     question: "¿Desarrollas para iOS y Android a la vez?",
     answer:
-      "Sí. Trabajo con tecnologías multiplataforma como Ionic, Capacitor y Flutter, que permiten tener la app en iOS, Android y Web con una sola base de código, reduciendo coste y mantenimiento.",
+      "Sí. Trabajo con tecnologías multiplataforma como Ionic y Flutter, que permiten tener la app en iOS, Android y Web con una sola base de código, reduciendo coste y mantenimiento. Si la app es solo para Apple, también la desarrollo nativa en Swift y SwiftUI.",
   },
   {
     question: "¿Te encargas de publicar la app en App Store y Google Play?",

@@ -30,7 +30,7 @@ const jsonLd = [
     image: `${SITE_URL}/og-image.jpg`,
     jobTitle: "Desarrollador Frontend y de Apps Móviles",
     email: "mailto:info@jadrdev.com",
-    knowsAbout: ["Angular", "Ionic", "Flutter", "Capacitor", "TypeScript", "Desarrollo de apps móviles"],
+    knowsAbout: ["Angular", "Ionic", "Flutter", "Swift", "SwiftUI", "TypeScript", "Desarrollo de apps móviles"],
     sameAs,
   },
   {
