@@ -9,7 +9,8 @@ import { Button } from "@/components/ui/button";
 import { SEO, SITE_URL } from "@/components/SEO";
 import { getService, services } from "@/data/services";
 import { projects } from "@/data/projects";
-import { WHATSAPP_URL } from "@/lib/contact";
+import { CONTACT_INTENTS, whatsappUrl } from "@/lib/contact";
+import ContactCTA from "@/components/ContactCTA";
 import NotFound from "./NotFound";
 
 const ServicePage = () => {
@@ -23,6 +24,7 @@ const ServicePage = () => {
     if (!service) return <NotFound />;
 
     const url = `${SITE_URL}/servicios/${service.slug}`;
+    const whatsappLink = whatsappUrl(CONTACT_INTENTS[service.cta.intent].whatsappText);
     const relatedProjects = projects.filter((project) => project.services.includes(service.slug));
     const otherServices = services.filter((other) => other.slug !== service.slug);
 
@@ -84,10 +86,12 @@ const ServicePage = () => {
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 pt-8">
                         <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground glow-primary font-semibold">
-                            <Link to="/#contact">Pide presupuesto</Link>
+                            <ContactCTA intent={service.cta.intent} source="pagina-servicio-intro">
+                                {service.cta.label}
+                            </ContactCTA>
                         </Button>
                         <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 font-semibold">
-                            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                                 Escríbeme por WhatsApp
                             </a>
                         </Button>
@@ -180,7 +184,9 @@ const ServicePage = () => {
                             Cuéntame tu idea y te preparo una propuesta con presupuesto, sin compromiso.
                         </p>
                         <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground glow-primary font-semibold">
-                            <Link to="/#contact">Pide presupuesto</Link>
+                            <ContactCTA intent={service.cta.intent} source="pagina-servicio-final">
+                                {service.cta.label}
+                            </ContactCTA>
                         </Button>
 
                         <h2 className="text-xl font-semibold mt-16 mb-6">Otros servicios</h2>
@@ -200,7 +206,7 @@ const ServicePage = () => {
             </main>
 
             <Footer />
-            <WhatsAppButton />
+            <WhatsAppButton href={whatsappLink} />
         </div>
     );
 };

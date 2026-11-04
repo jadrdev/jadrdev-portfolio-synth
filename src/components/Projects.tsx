@@ -2,6 +2,19 @@ import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { projects } from "@/data/projects";
 
+const groups = [
+  {
+    kind: "cliente",
+    title: "Para clientes y en equipo",
+    description: "Proyectos reales en producción. En los que hice en equipo indico cuál fue mi aportación.",
+  },
+  {
+    kind: "propio",
+    title: "Proyectos propios",
+    description: "Apps que he diseñado y desarrollado por mi cuenta, de principio a fin.",
+  },
+] as const;
+
 const Projects = () => {
   return (
     <section id="projects" className="py-20 sm:py-32">
@@ -21,9 +34,21 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
+        <div className="space-y-16">
+          {groups.map((group) => (
+            <div key={group.kind}>
+              <div className="mb-8">
+                <h3 className="text-2xl sm:text-3xl font-bold mb-2">{group.title}</h3>
+                <p className="text-muted-foreground">{group.description}</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {projects
+                  .filter((project) => project.kind === group.kind)
+                  .map((project, index) => (
+                    <ProjectCard key={project.title} project={project} index={index % 3} />
+                  ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

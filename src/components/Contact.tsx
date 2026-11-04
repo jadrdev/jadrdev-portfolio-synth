@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
 import { track } from "@vercel/analytics/react";
 import { Mail, Github, Linkedin, Send, Youtube, MessageCircle } from "lucide-react";
-import { WHATSAPP_URL, WHATSAPP_DISPLAY } from "@/lib/contact";
+import { useLocation } from "react-router-dom";
+import {
+  WHATSAPP_URL,
+  WHATSAPP_DISPLAY,
+  PROJECT_TYPES,
+  CONTACT_INTENTS,
+  isContactIntent,
+  whatsappUrl,
+} from "@/lib/contact";
 import { Tiktok } from "./icons/Tiktok";
 import { XLogo } from "./icons/XLogo";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-
-const projectTypes = [
-  "App móvil (iOS y Android)",
-  "App de fidelización para comercios",
-  "Web o panel de gestión",
-  "Mejorar o migrar una app existente",
-  "Otro",
-];
 
 const budgets = [
   "Aún no lo sé",
@@ -40,6 +40,18 @@ const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // A call to action elsewhere on the site links here as /?tipo=<intent>#contact:
+  // preselect its project type and tailor the hints to it.
+  const { search } = useLocation();
+  const tipo = new URLSearchParams(search).get("tipo");
+  const intent = isContactIntent(tipo) ? CONTACT_INTENTS[tipo] : undefined;
+
+  useEffect(() => {
+    if (intent) setFormData((data) => ({ ...data, projectType: intent.projectType }));
+  }, [intent]);
+
+  const whatsappLink = intent ? whatsappUrl(intent.whatsappText) : WHATSAPP_URL;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -184,7 +196,7 @@ const Contact = () => {
                     className={selectClassName}
                   >
                     <option value="">Selecciona una opción</option>
-                    {projectTypes.map((type) => (
+                    {PROJECT_TYPES.map((type) => (
                       <option key={type} value={type}>{type}</option>
                     ))}
                   </select>
@@ -214,7 +226,7 @@ const Contact = () => {
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Cuéntame sobre tu proyecto..."
+                  placeholder={intent?.placeholder ?? "Cuéntame sobre tu proyecto..."}
                   rows={5}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -235,7 +247,7 @@ const Contact = () => {
 
             <p className="text-center text-sm text-muted-foreground">
               ¿Prefieres hablar directamente? Escríbeme por{" "}
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                 WhatsApp ({WHATSAPP_DISPLAY})
               </a>{" "}
               o a{" "}

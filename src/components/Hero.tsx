@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowDown, MapPin, Smartphone, Layers, Rocket } from "lucide-react";
+import { ArrowDown, MapPin, Smartphone, Layers, Rocket, Wrench, Store } from "lucide-react";
 import { Button } from "./ui/button";
+import ContactCTA from "./ContactCTA";
+import { CONTACT_INTENTS, type ContactIntent } from "@/lib/contact";
 import heroImage from "@/assets/hero-image.webp";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -10,6 +12,12 @@ const Hero = () => {
     { icon: Smartphone, text: "6 apps publicadas en App Store y Google Play" },
     { icon: Layers, text: "iOS, Android y Web con un solo código" },
     { icon: Rocket, text: "De la idea a la publicación en las tiendas" },
+  ];
+
+  const intents: { intent: ContactIntent; icon: typeof Smartphone }[] = [
+    { intent: "app-nueva", icon: Smartphone },
+    { intent: "mejorar-app", icon: Wrench },
+    { intent: "digitalizar-comercio", icon: Store },
   ];
 
   const apps = ["Jable", "iHerro", "Talega", "PROSA", "Krondoc", "Tejineando"];
@@ -81,6 +89,27 @@ const Hero = () => {
             >
               Ver proyectos
             </Button>
+          </motion.div>
+
+          {/* Shortcuts to the contact form with the project type already chosen */}
+          <motion.div
+            className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <span className="text-sm text-muted-foreground">¿Qué necesitas?</span>
+            {intents.map(({ intent, icon: Icon }) => (
+              <ContactCTA
+                key={intent}
+                intent={intent}
+                source="hero"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/60 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
+              >
+                <Icon className="w-4 h-4 text-primary" />
+                {CONTACT_INTENTS[intent].label}
+              </ContactCTA>
+            ))}
           </motion.div>
 
           {/* Trust strip */}

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
+import ContactCTA from "./ContactCTA";
 
 const Services = () => {
   return (
@@ -31,26 +32,35 @@ const Services = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Link
-                to={`/servicios/${service.slug}`}
-                className="block h-full bg-card border border-border rounded-xl p-8 hover-lift group hover:border-primary/50 transition-colors"
-              >
+              {/* The whole card opens the service page (stretched link); the CTA sits above it */}
+              <div className="relative h-full bg-card border border-border rounded-xl p-8 hover-lift group hover:border-primary/50 transition-colors">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                     <service.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                      {service.title}
+                      <Link to={`/servicios/${service.slug}`} className="after:absolute after:inset-0 after:rounded-xl">
+                        {service.title}
+                      </Link>
                     </h3>
-                    <p className="text-muted-foreground mb-4">{service.summary}</p>
-                    <span className="inline-flex items-center text-sm font-medium text-primary">
-                      Más información
-                      <ArrowRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </span>
+                    <p className="text-muted-foreground mb-6">{service.summary}</p>
+                    <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                      <ContactCTA
+                        intent={service.cta.intent}
+                        source="servicios"
+                        className="relative z-10 inline-flex items-center px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors"
+                      >
+                        {service.cta.label}
+                      </ContactCTA>
+                      <span className="inline-flex items-center text-sm font-medium text-primary">
+                        Más información
+                        <ArrowRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </Link>
+              </div>
             </motion.div>
           ))}
         </div>

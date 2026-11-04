@@ -14,6 +14,10 @@ export interface Project {
   title: string;
   icon: string;
   role: string;
+  /** Client or team work, or a personal project: shown in separate groups */
+  kind: "cliente" | "propio";
+  /** What I did myself, for projects built as part of a team */
+  contribution?: string;
   description: string;
   tags: string[];
   /** Slugs of the service pages this project illustrates */
@@ -24,12 +28,18 @@ export interface Project {
   github?: string;
 }
 
+// Every app at Servicios Avanzados de Opinión was a team effort
+const SAO_CONTRIBUTION =
+  "Desarrollo de la app y diseño de los paneles de gestión, incluidas algunas de sus pantallas, en un equipo de 6 personas.";
+
 export const projects: Project[] = [
   {
     title: "Jable Card - ACEA Lanzarote",
     services: ["desarrollo-apps-moviles", "apps-fidelizacion-comercios"],
     icon: jableIcon,
     role: "Senior Frontend en Servicios Avanzados de Opinión",
+    kind: "cliente",
+    contribution: SAO_CONTRIBUTION,
     description: "App móvil de fidelización para asociación de comerciantes de Lanzarote. Sistema de puntos, ofertas y gestión de comercios.",
     tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
     link: "https://acealanzarote.com/jable-card/",
@@ -41,6 +51,8 @@ export const projects: Project[] = [
     services: ["desarrollo-apps-moviles", "apps-fidelizacion-comercios", "desarrollo-web-paneles"],
     icon: iherroIcon,
     role: "Senior Frontend en Servicios Avanzados de Opinión",
+    kind: "cliente",
+    contribution: SAO_CONTRIBUTION,
     description: "Plataforma de fidelización completa con app móvil y panel de administración para asociaciones comerciales.",
     tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
     link: "https://iherro.com/",
@@ -52,6 +64,8 @@ export const projects: Project[] = [
     services: ["desarrollo-apps-moviles", "apps-fidelizacion-comercios", "desarrollo-web-paneles"],
     icon: talegaIcon,
     role: "Senior Frontend en Servicios Avanzados de Opinión",
+    kind: "cliente",
+    contribution: SAO_CONTRIBUTION,
     description: "Sistema de fidelización y gestión de comercios con aplicación móvil multiplataforma y dashboard de administración.",
     tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
     link: "https://apptalega.com/",
@@ -63,6 +77,8 @@ export const projects: Project[] = [
     services: ["desarrollo-apps-moviles", "apps-fidelizacion-comercios"],
     icon: prosaIcon,
     role: "Senior Frontend en Servicios Avanzados de Opinión",
+    kind: "cliente",
+    contribution: SAO_CONTRIBUTION,
     description: "App de fidelización para la asociación de comerciantes de Puerto del Rosario, con gestión de ofertas y beneficios.",
     tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
     link: "https://prosapuertodelrosario.com/",
@@ -74,6 +90,8 @@ export const projects: Project[] = [
     services: ["desarrollo-apps-moviles"],
     icon: krondocIcon,
     role: "Senior Frontend en Servicios Avanzados de Opinión",
+    kind: "cliente",
+    contribution: SAO_CONTRIBUTION,
     description: "Aplicación de control de fichaje para gestionar el control horario y reportes.",
     tags: ["Ionic", "Angular", "TypeScript", "Capacitor"],
     link: "https://krondoc.com/",
@@ -85,6 +103,8 @@ export const projects: Project[] = [
     services: ["desarrollo-apps-moviles", "migracion-mantenimiento-apps"],
     icon: tejineandoIcon,
     role: "Senior Frontend en Servicios Avanzados de Opinión",
+    kind: "cliente",
+    contribution: SAO_CONTRIBUTION,
     description: "Juego móvil para iOS y Android desarrollado en Godot 4 —migrado desde Ionic + PixiJS—, con sistemas de combate, coplas, preguntas y progresión, y funcionalidades nativas como la geolocalización.",
     tags: [
       "Godot 4",
@@ -101,6 +121,7 @@ export const projects: Project[] = [
     services: ["desarrollo-web-paneles"],
     icon: tenerifeBikeToursIcon,
     role: "Desarrollo web",
+    kind: "cliente",
     description: "Web en WordPress de una empresa de cicloturismo en Tenerife: optimización de imágenes, SEO técnico, seguridad, protección antispam del formulario de reservas y páginas legales.",
     tags: ["WordPress", "PHP", "SEO", "Rendimiento"],
     link: "https://tenerifebiketours.com/",
@@ -110,6 +131,7 @@ export const projects: Project[] = [
     services: ["desarrollo-web-paneles"],
     icon: fabrikBarberIcon,
     role: "Desarrollo web",
+    kind: "cliente",
     description: "Web corporativa de una barbería y peluquería en Tenerife, con sus servicios y datos de contacto.",
     tags: ["WordPress", "WPBakery", "Diseño responsive"],
     link: "https://fabrikbarber.com/",
@@ -119,6 +141,7 @@ export const projects: Project[] = [
     services: ["desarrollo-web-paneles"],
     icon: gesfincIcon,
     role: "Desarrollo web",
+    kind: "cliente",
     description: "Web corporativa de una empresa de administración de fincas en Canarias, con presentación de servicios, blog y acceso a su app para propietarios.",
     tags: ["WordPress", "Elementor", "Blog"],
     link: "https://gesfinc.com/",
@@ -128,6 +151,7 @@ export const projects: Project[] = [
     services: ["desarrollo-apps-moviles"],
     icon: gasolinerasIcon,
     role: "Proyecto Propio",
+    kind: "propio",
     description: "Aplicación móvil para localizar gasolineras en Canarias con precios actualizados y rutas optimizadas.",
     tags: ["Flutter", "Dart", "Google Maps API"],
     link: "https://jadrdev.github.io/gasolineras_can/",
@@ -138,6 +162,7 @@ export const projects: Project[] = [
     services: ["desarrollo-apps-moviles"],
     icon: pautaIcon,
     role: "Proyecto Propio",
+    kind: "propio",
     description: "Gestor de tareas nativo en SwiftUI para macOS, con app de iOS, widgets y Apple Watch. Sin cuentas ni suscripciones: tus datos se sincronizan en tu propia carpeta de iCloud.",
     tags: ["Swift", "SwiftUI", "macOS", "iOS", "iCloud"],
     github: "https://github.com/jadrdev/pauta",

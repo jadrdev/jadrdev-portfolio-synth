@@ -1,4 +1,5 @@
 import { Code, Smartphone, RefreshCw, Store, type LucideIcon } from "lucide-react";
+import type { ContactIntent } from "@/lib/contact";
 
 export interface Service {
   slug: string;
@@ -7,6 +8,8 @@ export interface Service {
   title: string;
   /** Card copy on the home page */
   summary: string;
+  /** Call to action of this service: preselects the project type in the contact form */
+  cta: { intent: ContactIntent; label: string };
   seoTitle: string;
   seoDescription: string;
   heading: string;
@@ -19,6 +22,7 @@ export interface Service {
 export const services: Service[] = [
   {
     slug: "desarrollo-apps-moviles",
+    cta: { intent: "app-nueva", label: "Pide presupuesto para tu app" },
     icon: Smartphone,
     title: "Apps móviles para iOS y Android",
     summary:
@@ -81,6 +85,7 @@ export const services: Service[] = [
   },
   {
     slug: "apps-fidelizacion-comercios",
+    cta: { intent: "digitalizar-comercio", label: "Digitaliza tu comercio" },
     icon: Store,
     title: "Apps de fidelización para comercios",
     summary:
@@ -139,6 +144,7 @@ export const services: Service[] = [
   },
   {
     slug: "desarrollo-web-paneles",
+    cta: { intent: "web", label: "Pide presupuesto para tu web" },
     icon: Code,
     title: "Webs y paneles de gestión",
     summary:
@@ -197,6 +203,7 @@ export const services: Service[] = [
   },
   {
     slug: "migracion-mantenimiento-apps",
+    cta: { intent: "mejorar-app", label: "Mejora tu app actual" },
     icon: RefreshCw,
     title: "Migración, mantenimiento y consultoría",
     summary:

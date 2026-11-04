@@ -87,6 +87,13 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
         <p className="text-muted-foreground">{project.description}</p>
 
+        {project.contribution && (
+          <p className="text-sm border-l-2 border-primary/60 pl-3">
+            <span className="font-semibold text-foreground">Mi aportación: </span>
+            <span className="text-muted-foreground">{project.contribution}</span>
+          </p>
+        )}
+
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
