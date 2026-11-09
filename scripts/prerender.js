@@ -19,6 +19,10 @@ fs.writeFileSync(path.join(distDir, 'shell.html'), template);
 const outputPath = (route) =>
     path.join(distDir, route === '/' ? 'index.html' : `${route.slice(1)}.html`);
 
+// "/404" falls into the catch-all route (NotFound). Vercel serves dist/404.html with a real 404
+// status for any URL that isn't a file and isn't rewritten (see vercel.json).
+const NOT_FOUND_ROUTE = '/404';
+
 // Keep "<" out of the inline JSON so post content can't close the script tag
 const serializeState = (state) => JSON.stringify(state).replace(/</g, '\\u003c');
 
@@ -26,7 +30,7 @@ const { render, getRoutes } = await import(pathToFileURL(serverEntry).href);
 const { staticRoutes, posts } = await getRoutes();
 const routes = [...staticRoutes, ...posts.map((post) => post.path)];
 
-for (const route of routes) {
+for (const route of [...routes, NOT_FOUND_ROUTE]) {
     const { html, head, state } = await render(route);
     const page = template
         .replace(/<!--seo-start-->[\s\S]*<!--seo-end-->/, head)
