@@ -26,6 +26,12 @@ export interface Project {
   iosLink?: string;
   androidLink?: string;
   github?: string;
+  /** Short screen recording shown in a dialog from the card */
+  demo?: {
+    video: string;
+    poster: string;
+    caption: string;
+  };
 }
 
 // Every app at Servicios Avanzados de Opinión was a team effort
@@ -147,15 +153,22 @@ export const projects: Project[] = [
     link: "https://gesfinc.com/",
   },
   {
-    title: "Gasolineras de Canarias",
+    title: "GasoCan: Gasolineras de Canarias",
     services: ["desarrollo-apps-moviles"],
     icon: gasolinerasIcon,
     role: "Proyecto Propio",
     kind: "propio",
-    description: "Aplicación móvil para localizar gasolineras en Canarias con precios actualizados y rutas optimizadas.",
-    tags: ["Flutter", "Dart", "Google Maps API"],
+    description: "Compara el precio del combustible en todas las gasolineras de Canarias, calcula cuánto te cuesta llenar el depósito y te avisa cuando baja el precio en tus favoritas. También muestra puntos de recarga para eléctricos con su ocupación en tiempo real.",
+    tags: ["Flutter", "Dart", "Supabase", "Firebase", "iOS", "Android"],
     link: "https://jadrdev.github.io/gasolineras_can/",
+    iosLink: "https://apps.apple.com/es/app/id6832509598",
+    androidLink: "https://play.google.com/store/apps/details?id=com.jadrdev.gasolinera",
     github: "https://github.com/jadrdev/gasolineras_can",
+    demo: {
+      video: "/videos/gasocan-demo.mp4",
+      poster: "/videos/gasocan-demo.jpg",
+      caption: "Dos gasolineras de La Laguna con Gasolina 95: precio, distancia y lo que cuesta llenar 40 L.",
+    },
   },
   {
     title: "Pauta",

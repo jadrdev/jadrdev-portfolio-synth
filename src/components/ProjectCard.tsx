@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Smartphone } from "lucide-react";
+import { track } from "@vercel/analytics/react";
+import { CirclePlay, ExternalLink, Github, Smartphone } from "lucide-react";
 import { Button } from "./ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
 import type { Project } from "@/data/projects";
 
 // Custom Apple icon component since it might not be in the current lucide-react version or to ensure consistency
@@ -68,6 +77,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                   rel="noopener noreferrer"
                   title={link.title}
                   aria-label={`${link.title}: ${project.title}`}
+                  data-project={project.title}
                 >
                   <link.icon className="h-4 w-4" />
                 </a>
@@ -104,6 +114,35 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             </span>
           ))}
         </div>
+
+        {project.demo && (
+          <Dialog onOpenChange={(open) => open && track("Demo", { project: project.title })}>
+            <DialogTrigger asChild>
+              <Button variant="outline" size="sm" className="gap-2">
+                <CirclePlay className="h-4 w-4" />
+                Ver demo
+              </Button>
+            </DialogTrigger>
+            {/* The video only mounts (and downloads) once the dialog is open. */}
+            <DialogContent className="max-w-sm max-h-[95vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle>{project.title}</DialogTitle>
+                <DialogDescription>{project.demo.caption}</DialogDescription>
+              </DialogHeader>
+              <video
+                src={project.demo.video}
+                poster={project.demo.poster}
+                className="mx-auto max-h-[70vh] w-auto rounded-2xl ring-1 ring-border"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                aria-label={`Demo de ${project.title}`}
+              />
+            </DialogContent>
+          </Dialog>
+        )}
       </div>
     </motion.div>
   );
