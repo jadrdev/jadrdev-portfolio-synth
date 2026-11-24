@@ -67,6 +67,16 @@ const BlogPost = () => {
         );
     }
 
+    // Ghost supplies this demo as HTML. Keep the poster and native controls,
+    // and let the browser request the video when the visitor plays it.
+    const postHtml = post.html.replace(
+        /<video\b[^>]*\bsrc=["'](?:https:\/\/www\.jadrdev\.com)?\/videos\/gasocan-demo\.mp4["'][^>]*>/gi,
+        (tag) => tag
+            .replace(/\s+autoplay(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?(?=\s|>)/gi, "")
+            .replace(/\s+preload(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?(?=\s|>)/gi, "")
+            .replace(/^<video/i, '<video preload="none"'),
+    );
+
     return (
         <div className="min-h-screen flex flex-col bg-background">
             <SEO
@@ -153,7 +163,7 @@ const BlogPost = () => {
               prose-img:rounded-lg prose-img:shadow-md
               prose-blockquote:border-l-primary prose-blockquote:bg-muted/30 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:rounded-r
               "
-                        dangerouslySetInnerHTML={{ __html: post.html }}
+                        dangerouslySetInnerHTML={{ __html: postHtml }}
                     />
                 </article>
             </main>
