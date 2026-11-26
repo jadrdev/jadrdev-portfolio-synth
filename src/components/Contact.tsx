@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { track } from "@vercel/analytics/react";
-import { Mail, Github, Linkedin, Send, Youtube, MessageCircle } from "lucide-react";
+import { Mail, Github, Instagram, Linkedin, Send, Youtube, MessageCircle } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import {
   WHATSAPP_URL,
@@ -117,6 +117,7 @@ const Contact = () => {
   };
 
   const socialLinks = [
+    { icon: Instagram, href: "https://www.instagram.com/jadrdev.app/", label: "Instagram" },
     { icon: Tiktok, href: "https://www.tiktok.com/@jadrdev", label: "TikTok" },
     { icon: Youtube, href: "https://www.youtube.com/@jadrdevcm", label: "YouTube" },
     { icon: XLogo, href: "https://x.com/jadrdev", label: "X" },

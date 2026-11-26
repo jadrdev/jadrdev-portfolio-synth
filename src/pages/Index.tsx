@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import { SEO, SITE_URL } from "@/components/SEO";
 
 const sameAs = [
+  "https://www.instagram.com/jadrdev.app/",
   "https://www.tiktok.com/@jadrdev",
   "https://www.youtube.com/@jadrdevcm",
   "https://x.com/jadrdev",
